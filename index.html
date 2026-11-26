@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Soft Ice — Safeguard Pro | Health & Safety Operations</title>
+<meta name="description" content="Soft Ice Catering — Health & Safety Operations App. Audits, incidents, actions, hazards, assets, first aid, certs and reminders. Works offline.">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0A1E4A">
+<style>
+:root{--navy:#0A1E4A;--blue:#2F5AA8;--light:#5BA3D0;--ink:#16233F;--muted:#5A6B8A;--line:#D9E4F5;--bg:#EEF3FA;--ok:#1E7A34;--warn:#B7791F;--bad:#C0392B;--radius:16px}
+*{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',Inter,system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:var(--blue)}
+header{background:linear-gradient(135deg,#040C22 0%,#0A1E4A 35%,#1E3A6E 65%,#2F5AA8 100%);color:#fff;padding:14px 18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.logo{display:flex;gap:14px;align-items:center}.s-logo{height:72px;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,.3))}.s{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,#fff,#DCE8F8);color:var(--navy);display:grid;place-items:center;font-family:Georgia,serif;font-size:52px;font-weight:900;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.banner{height:72px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#040C22,#142F68 55%,#2F5AA8 85%,#5BA3D0);border-radius:14px;padding:0 22px;border:1px solid rgba(255,255,255,.35)}
+.banner b{font-family:Georgia,serif;font-size:26px;letter-spacing:3px}.banner span{font-size:11px;font-weight:800;letter-spacing:5px;color:#EAF0FA}
+header h1{font-family:Georgia,serif;font-size:22px;margin:0}header p{margin:4px 0 0;font-size:12.5px;color:#EAF0FA}
+.topbar{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.search{padding:10px 14px;border-radius:999px;border:1px solid #fff;background:rgba(255,255,255,.95);min-width:220px;color:var(--ink)}
+nav{background:#fff;padding:9px 12px;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.g{position:relative}.gb{border:1px solid #C9D4E8;background:#fff;color:var(--ink);padding:9px 15px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px}.g.open .gb,.gb:hover,.gb.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.drop{position:absolute;top:calc(100% + 6px);left:0;min-width:250px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 30px rgba(18,35,68,.18);padding:6px;z-index:30;display:none}.g.open .drop{display:block}
+.drop button{display:block;width:100%;text-align:left;border:0;background:transparent;padding:11px;cursor:pointer;font-size:14px;border-radius:9px;color:var(--ink);font-family:inherit}.drop button:hover{background:#EAF0FA}.drop button.on{background:var(--blue);color:#fff}
+main{padding:18px;max-width:1180px;margin:auto}
+.card{background:#FFFFFF;color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:14px;box-shadow:0 6px 20px rgba(18,35,68,.07)}
+.card h2{font-family:Georgia,serif;color:var(--navy);margin:0 0 8px;font-size:21px}.card h3{color:var(--blue);margin:14px 0 6px;font-size:15px}
+.card p,.card li,.card td,.card label,.card .small{color:var(--ink)} .card .small,.small{font-size:12px;color:var(--muted)}
+.btn{background:var(--blue);color:#fff;border:0;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700}.btn:hover{background:#22407E}.btn2{background:#fff;color:var(--blue);border:2px solid var(--blue);padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700}.del{background:var(--bad);color:#fff;border:0;padding:6px 10px;border-radius:8px;cursor:pointer}.ok{background:var(--ok);color:#fff;border:0;padding:6px 10px;border-radius:8px;cursor:pointer}
+input,select,textarea{width:100%;padding:10px 11px;border:1.5px solid #C9D4E8;border-radius:11px;margin:4px 0;font-size:14px;background:#fff;color:var(--ink);font-family:inherit}input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,90,168,.14)}
+label{font-size:11px;font-weight:800;color:#3A4F77;text-transform:uppercase;letter-spacing:.5px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:12px;overflow:hidden}th{background:var(--blue);color:#fff!important;padding:10px;text-align:left;font-size:13px}td{border-bottom:1px solid #E8EFFA;padding:9px;vertical-align:top;color:var(--ink)!important;background:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:14px}
+.kpi{background:#fff;color:var(--ink);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:14px;padding:14px}.kpi b{font-size:30px;color:var(--navy);font-family:Georgia,serif;display:block}.kpi span{color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.kanban{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.col{background:#F4F7FC;border:1px solid var(--line);border-radius:14px;padding:12px;color:var(--ink)}.col h3{color:var(--navy);margin:0 0 10px}.kcard{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px;margin-bottom:10px;color:var(--ink)}
+.pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:800}.p-red{background:#FDECEA;color:#8B1E14}.p-amber{background:#FFF4D6;color:#7A4A00}.p-green{background:#E6F4EA;color:#145A2A}.p-blue{background:#EAF0FA;color:#1E3A6E}
+.alert{border-left:6px solid var(--bad);background:#FFF5F4}.alert-ok{border-left:6px solid var(--ok);background:#F0FAF2}
+#toast{position:fixed;bottom:16px;right:16px;background:var(--ok);color:#fff;padding:12px 16px;border-radius:12px;display:none;z-index:99;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+img.thumb{width:90px;height:90px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.flex{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+@media(max-width:640px){header h1{font-size:18px}main{padding:12px}.banner{min-width:0}.banner b{font-size:20px;letter-spacing:1px}.search{min-width:160px}}
+@media print{header,nav,.no-print{display:none!important}main{max-width:none} .card{box-shadow:none;break-inside:avoid}}
+</style></head><body>
+<header><div class="logo"><img class="s-logo" src="s-logo.png" alt="Soft Ice S logo"><div class="banner"><b>SOFT ICE</b><span>CATERING • SAFEGUARD PRO</span></div></div>
+<div><h1>Health &amp; Safety Operations</h1><p>Site audits • Incidents • Actions • Hazards • Assets • First Aid • Certificates • Reminders</p></div>
+<div class="topbar"><input class="search" id="globalSearch" placeholder="Search everything…" oninput="render()"><button class="btn2" onclick="window.print()">Print / PDF</button><button class="btn" onclick="exportJSON()">Backup</button></div></header>
+<nav id="nav"></nav><main id="app"></main><div id="toast"></div>
+<script>
+var DEFAULT={audits:[],templates:[],incidents:[],actions:[],assets:[],hazards:[],risks:[],firstaid:[],certs:[],reminders:[],photos:[],notes:[]};
+var DB; try{DB=JSON.parse(localStorage.getItem('softice_v2'))||structuredClone(DEFAULT)}catch(e){DB=structuredClone(DEFAULT)}
+Object.keys(DEFAULT).forEach(function(k){if(!Array.isArray(DB[k]))DB[k]=[]});
+var VIEW=localStorage.getItem('softice_view')||'Dashboard'; var FILTER='All';
+var MENUS=[['Overview',['Dashboard','Today','SOP Library']],['Safety',['Site Audits','Incidents','Hazard Register','Risk Assessments']],['Actions',['Action Tracker','Reminders','First Aid','Certificates']],['Assets & Evidence',['Asset Register','Photo Queue','Pack / Notes']],['Data',['Backup & Restore','Templates']]];
+function save(){localStorage.setItem('softice_v2',JSON.stringify(DB))}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(function(){t.style.display='none'},2600)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function v(id){var el=document.getElementById(id);return el?el.value.trim():''}
+function q(){return (document.getElementById('globalSearch')?.value||'').toLowerCase()}
+function matches(o){var s=q();if(!s)return true;return JSON.stringify(o).toLowerCase().includes(s)}
+function add(key,obj){DB[key].push(obj);save();toast('Saved ✓');render()}
+function del(key,i){if(confirm('Delete this record?')){DB[key].splice(i,1);save();render()}}
+function todayStr(){var d=new Date();return d.toISOString().slice(0,10)}
+function isOverdue(d){return d&&d<todayStr()}
+function isSoon(d){if(!d)return false;var diff=(new Date(d)-new Date(todayStr()))/864e5;return diff>=0&&diff<=14}
+function badge(d){if(!d)return '<span class="pill p-blue">No date</span>';if(isOverdue(d))return '<span class="pill p-red">OVERDUE • '+esc(d)+'</span>';if(isSoon(d))return '<span class="pill p-amber">DUE SOON • '+esc(d)+'</span>';return '<span class="pill p-green">'+esc(d)+'</span>'}
+function csv(key,cols){var rows=DB[key].filter(matches);if(!rows.length){alert('Nothing to export');return}var head=cols.join(',');var body=rows.map(function(r){return cols.map(function(c){return '"'+String(r[c]??'').replace(/"/g,'""')+'"'}).join(',')}).join('\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([head+'\n'+body],{type:'text/csv'}));a.download='soft-ice-'+key+'.csv';a.click()}
+function rows(list,cols,delKey){if(!list.length)return '<p class="small">No records yet — add one above.</p>';return '<div style="overflow:auto"><table><tr>'+cols.map(function(c){return '<th>'+c.label+'</th>'}).join('')+'<th></th></tr>'+list.map(function(r,i){return '<tr>'+cols.map(function(c){return '<td>'+esc(r[c.key])+'</td>'}).join('')+'<td><button class="del" onclick="del(\''+delKey+'\','+i+')">Delete</button></td></tr>'}).join('')+'</table></div>'}
+function formCard(title,fields,fn,extra){return '<div class="card"><h2>'+title+'</h2><div class="grid">'+fields+'</div><div class="flex" style="margin-top:10px"><button class="btn" onclick="'+fn+'()">Save</button>'+(extra||'')+'</div></div>'}
+function inp(id,ph,type){return '<div><label>'+ph+'</label><input id="'+id+'" type="'+(type||'text')+'" placeholder="'+ph+'"></div>'}
+function sel(id,ph,opts){return '<div><label>'+ph+'</label><select id="'+id+'">'+opts.map(function(o){return '<option>'+o+'</option>'}).join('')+'</select></div>'}
+
+var TEMPLATES={
+ audit:{
+  'Kitchen — Daily Hygiene Audit':{dept:'Kitchen',score:'9',find:'Floors clean & dry. Surfaces sanitised. Fridges 0–4°C. No cross-contamination. Waste bins closed. PPE worn.'},
+  'Kitchen — Weekly Deep Clean Audit':{dept:'Kitchen',score:'8',find:'Deep clean completed. Ovens / grills degreased. Extraction filters checked. Pest signs: none. Chemicals stored locked.'},
+  'Front of House — Service Audit':{dept:'Front of House',score:'9',find:'Tables / counters clean. Serving temps checked. Allergen info displayed. Handwash station stocked. No trip hazards.'},
+  'Warehouse / Storage Audit':{dept:'Warehouse',score:'8',find:'Stock rotated (FIFO). No expired stock. Walkways clear. Racking stable. Fire exit clear. Lighting working.'},
+  'Vehicle / Delivery Audit':{dept:'Transport',score:'9',find:'Vehicle clean. Cold boxes temp checked. Licences / discs valid. First aid kit present. No leaks.'},
+  'General Site Safety Audit':{dept:'General',score:'8',find:'Fire extinguishers in date. Exits clear. Electrical cables safe. Signage visible. First aid stocked.'}
+ },
+ incident:{
+  'Slip / Trip / Fall':{type:'Near Miss',desc:'Staff / visitor slipped / tripped on wet / uneven surface.',act:'Area cordoned, cleaned & dried. Wet-floor sign placed. Incident logged.'},
+  'Food Safety — Temperature Issue':{type:'Food Safety',desc:'Fridge / hot-holding temp out of range during check.',act:'Stock isolated, temp re-checked, faulty unit reported. Corrective action logged.'},
+  'Minor Injury — Cut / Burn':{type:'Injury',desc:'Minor cut / burn during food prep / service.',act:'First aid given. Area cleaned. PPE / procedure reminded. Follow-up checked.'},
+  'Security — Unauthorised Access':{type:'Security',desc:'Person found in restricted / upstairs area without permission.',act:'Person escorted out. Access point checked & secured. Palmer + Philip notified.'},
+  'Property Damage':{type:'Property Damage',desc:'Equipment / property damaged during operations.',act:'Area made safe. Damage photographed. Repair reported.'},
+  'Near Miss — Equipment':{type:'Near Miss',desc:'Equipment fault / near miss — no injury.',act:'Equipment isolated / switched off. Maintenance reported. Staff briefed.'}
+ },
+ hazard:{
+  'Wet / Slippery Floor':{haz:'Wet / slippery floor',risk:'High',ctrl:'Mop & dry, wet-floor signs, non-slip mats, closed footwear.'},
+  'Hot Surfaces / Oil':{haz:'Hot surfaces / hot oil',risk:'High',ctrl:'Heat gloves, splash guards, no rushing near fryers, cool-down procedure.'},
+  'Sharp Knives / Blades':{haz:'Sharp knives / blades',risk:'Medium',ctrl:'Knife skills training, cut gloves, safe storage, no loose blades in sinks.'},
+  'Electrical — Cables / Sockets':{haz:'Exposed cables / overloaded sockets',risk:'High',ctrl:'Cable covers, no daisy-chaining, report damage, monthly check.'},
+  'Chemical Storage':{haz:'Cleaning chemicals',risk:'Medium',ctrl:'Locked store, labelled bottles, SDS on file, gloves / goggles.'},
+  'Manual Handling / Lifting':{haz:'Heavy lifting / manual handling',risk:'Medium',ctrl:'Trolley use, two-person lift, bend knees, no twisting.'}
+ },
+ risk:{
+  'Food Preparation':{act:'Food Preparation',risk:'Medium',ctrl:'Wash hands, sanitise surfaces, separate raw/cooked, temp checks.'},
+  'Hot Food Service':{act:'Hot Food Service',risk:'Medium',ctrl:'Hot-hold above 63°C, serve promptly, burn protection, sneeze guards.'},
+  'Cleaning & Chemicals':{act:'Cleaning & Chemicals',risk:'Medium',ctrl:'Dilute per label, gloves/goggles, ventilate, locked storage.'},
+  'Deliveries / Transport':{act:'Deliveries / Transport',risk:'Medium',ctrl:'Cold chain 0–4°C, secure load, licensed driver, vehicle check.'},
+  'Working at Height':{act:'Working at Height',risk:'High',ctrl:'Stable ladder, 3-point contact, no overreach, second person present.'},
+  'Crowd / Event Service':{act:'Crowd / Event Service',risk:'Medium',ctrl:'Clear exits, crowd flow plan, no blocked walkways, first aid on site.'}
+ },
+ action:{
+  'Fix / Repair Equipment':{act:'Fix / repair equipment — describe in notes',owner:'Philip Dorfling',status:'To Do'},
+  'Restock First Aid Kit':{act:'Restock first aid kit',owner:'Philip Dorfling',status:'To Do'},
+  'Deep Clean Kitchen':{act:'Deep clean kitchen',owner:'',status:'To Do'},
+  'Check Fire Extinguishers':{act:'Check fire extinguishers & exits',owner:'',status:'To Do'},
+  'Staff Safety Briefing':{act:'Staff safety briefing / toolbox talk',owner:'',status:'To Do'},
+  'Renew Certificate':{act:'Renew certificate / licence',owner:'',status:'To Do'}
+ },
+ asset:{
+  'Fridge / Cold Room':{asset:'Fridge / Cold Room',cond:'Good'},
+  'Oven / Stove':{asset:'Oven / Stove',cond:'Good'},
+  'Fire Extinguisher':{asset:'Fire Extinguisher',cond:'Good'},
+  'First Aid Kit':{asset:'First Aid Kit',cond:'Good'},
+  'Delivery Vehicle':{asset:'Delivery Vehicle',cond:'Good'},
+  'Generator':{asset:'Generator',cond:'Good'}
+ }
+};
+function tplPicker(kind){
+ var opts=Object.keys(TEMPLATES[kind]||{}).map(function(k){return '<option value="'+k+'">'+k+'</option>'}).join('');
+ return '<div style="margin-bottom:12px"><label>⚡ Ready-made template — pick one to auto-fill</label><select onchange="applyTpl(\''+kind+'\',this.value)"><option value="">— No template, fill manually —</option>'+opts+'</select></div>';
+}
+function applyTpl(kind,name){
+ if(!name)return; var t=TEMPLATES[kind][name]; if(!t)return;
+ if(t.site!==undefined)document.getElementById('f_site').value=t.site||'';
+ if(t.dept!==undefined)document.getElementById('f_dept').value=t.dept||'';
+ if(t.score!==undefined)document.getElementById('f_score').value=t.score||'';
+ if(t.find!==undefined)document.getElementById('f_find').value=t.find||'';
+ if(t.type!==undefined)document.getElementById('f_type').value=t.type||'';
+ if(t.desc!==undefined)document.getElementById('f_desc').value=t.desc||'';
+ if(t.act!==undefined){var a=document.getElementById('f_act'); if(a)a.value=t.act||'';}
+ if(t.haz!==undefined)document.getElementById('f_haz').value=t.haz||'';
+ if(t.risk!==undefined)document.getElementById('f_risk').value=t.risk||'';
+ if(t.ctrl!==undefined)document.getElementById('f_ctrl').value=t.ctrl||'';
+ if(t.owner!==undefined)document.getElementById('f_owner').value=t.owner||'';
+ if(t.status!==undefined)document.getElementById('f_status').value=t.status||'';
+ if(t.asset!==undefined)document.getElementById('f_asset').value=t.asset||'';
+ if(t.cond!==undefined)document.getElementById('f_cond').value=t.cond||'';
+ toast('Template applied ✓ — check date / site, then Save');
+}
+function navHTML(){return MENUS.map(function(m){return '<div class="g" data-menu="'+m[0]+'"><button class="gb '+(m[1].includes(VIEW)?'active':'')+'" onclick="toggleMenu(event,\''+m[0]+'\')">'+m[0]+' ▾</button><div class="drop">'+m[1].map(function(x){return '<button class="'+(VIEW===x?'on':'')+'" onclick="go(\''+x+'\')">'+x+'</button>'}).join('')+'</div></div>'}).join('')+'<button class="gb" onclick="quickAdd()">+ Quick Add</button>'}
+function toggleMenu(e,name){e.stopPropagation();document.querySelectorAll('.g').forEach(function(g){if(g.dataset.menu!==name)g.classList.remove('open')});var g=document.querySelector('[data-menu="'+name+'"]');g.classList.toggle('open')}
+document.addEventListener('click',function(){document.querySelectorAll('.g').forEach(function(g){g.classList.remove('open')})});
+function go(x){VIEW=x;localStorage.setItem('softice_view',x);render()}
+function quickAdd(){var c=prompt('Quick add — type: audit, incident, action, hazard, reminder');if(!c)return;var m={audit:'Site Audits',incident:'Incidents',action:'Action Tracker',hazard:'Hazard Register',reminder:'Reminders'};go(m[c.toLowerCase()]||'Dashboard')}
+function render(){
+ document.getElementById('nav').innerHTML=navHTML(); var A=document.getElementById('app'); var h='';
+ var overdueActions=DB.actions.filter(function(r){return r.status!=='Done'&&isOverdue(r.date)}); var overdueCerts=DB.certs.filter(function(r){return isOverdue(r.exp)}); var overdueFA=DB.firstaid.filter(function(r){return isOverdue(r.exp)}); var openActions=DB.actions.filter(function(r){return r.status!=='Done'});
+ if(VIEW==='Dashboard'){
+   h='<div class="kpis"><div class="kpi"><b>'+DB.audits.length+'</b><span>Audits</span></div><div class="kpi"><b>'+DB.incidents.length+'</b><span>Incidents</span></div><div class="kpi"><b>'+openActions.length+'</b><span>Open Actions</span></div><div class="kpi" style="border-left-color:#C0392B"><b>'+overdueActions.length+'</b><span>Overdue Actions</span></div><div class="kpi"><b>'+DB.hazards.length+'</b><span>Hazards</span></div><div class="kpi"><b>'+DB.assets.length+'</b><span>Assets</span></div></div>';
+   if(overdueActions.length||overdueCerts.length||overdueFA.length){h+='<div class="card alert"><h2>⚠ Needs attention today</h2><p>'+(overdueActions.length?'<b>'+overdueActions.length+' overdue action(s).</b> ':'')+(overdueCerts.length?'<b>'+overdueCerts.length+' expired certificate(s).</b> ':'')+(overdueFA.length?'<b>'+overdueFA.length+' expired first-aid item(s).</b> ':'')+'Open the relevant register below to fix them.</p><div class="flex"><button class="btn" onclick="go(\'Action Tracker\')">Action Tracker</button><button class="btn2" onclick="go(\'Certificates\')">Certificates</button><button class="btn2" onclick="go(\'First Aid\')">First Aid</button></div></div>'}
+   else{h+='<div class="card alert-ok"><h2>✓ All clear</h2><p class="small">No overdue actions, expired certificates or expired first-aid items.</p></div>'}
+   h+='<div class="card"><h2>Today — '+todayStr()+'</h2><p><b>Due today / soon:</b> '+(DB.reminders.filter(function(r){return isSoon(r.date)||isOverdue(r.date)}).map(function(r){return esc(r.rem)+' ('+esc(r.date)+')'}).join(' • ')||'Nothing due.')+'</p><div class="flex"><button class="btn" onclick="go(\'Site Audits\')">+ New Audit</button><button class="btn2" onclick="go(\'Incidents\')">+ Report Incident</button><button class="btn2" onclick="go(\'Action Tracker\')">+ New Action</button><button class="btn2" onclick="go(\'Photo Queue\')">+ Add Photo</button></div></div>';
+   h+='<div class="card"><h2>Recent activity</h2><p class="small">Latest audits, incidents and actions. Use the search at the top to find anything across all registers.</p>'+rows(DB.audits.slice(-3).filter(matches),[{key:'site',label:'Site'},{key:'date',label:'Date'},{key:'score',label:'Score'}],'audits')+'</div>';
+ }
+ if(VIEW==='Today'){h='<div class="card"><h2>Today — '+todayStr()+'</h2><p>Overdue actions: <b>'+overdueActions.length+'</b> • Open actions: <b>'+openActions.length+'</b> • Reminders due soon: <b>'+DB.reminders.filter(function(r){return isSoon(r.date)||isOverdue(r.date)}).length+'</b></p></div><div class="card"><h2>Reminders</h2>'+rows(DB.reminders.filter(matches),[{key:'rem',label:'Reminder'},{key:'date',label:'Date'},{key:'site',label:'Site'}],'reminders')+'</div>'}
+ if(VIEW==='Site Audits'){h='<div class="card">'+tplPicker('audit')+'</div>'+formCard('New Site Audit',inp('f_site','Site')+inp('f_dept','Department')+inp('f_date','Date','date')+inp('f_score','Score /10','number')+'<div style="grid-column:1/-1"><label>Findings</label><textarea id="f_find" rows="3"></textarea></div>','saveAudit','<button class="btn2" onclick="csv(\'audits\',[\'site\',\'dept\',\'date\',\'score\',\'find\'])">Export CSV</button>')+'<div class="card"><h2>Audits</h2>'+rows(DB.audits.filter(matches),[{key:'site',label:'Site'},{key:'dept',label:'Dept'},{key:'date',label:'Date'},{key:'score',label:'Score'},{key:'find',label:'Findings'}],'audits')+'</div>'}
+ if(VIEW==='Incidents'){h='<div class="card">'+tplPicker('incident')+'</div>'+formCard('Report Incident',inp('f_site','Site')+inp('f_date','Date','date')+sel('f_type','Type',['Near Miss','Injury','Property Damage','Food Safety','Security','Other'])+'<div style="grid-column:1/-1"><label>What happened</label><textarea id="f_desc" rows="3"></textarea></div><div style="grid-column:1/-1"><label>Action taken</label><textarea id="f_act" rows="2"></textarea></div>','saveIncident','<button class="btn2" onclick="csv(\'incidents\',[\'site\',\'date\',\'type\',\'desc\',\'act\'])">Export CSV</button>')+'<div class="card"><h2>Incidents</h2>'+rows(DB.incidents.filter(matches),[{key:'site',label:'Site'},{key:'date',label:'Date'},{key:'type',label:'Type'},{key:'desc',label:'What happened'},{key:'act',label:'Action taken'}],'incidents')+'</div>'}
+ if(VIEW==='Action Tracker'){var cols=['To Do','In Progress','Done'];h='<div class="card">'+tplPicker('action')+'</div><div class="card"><h2>New Action</h2><div class="grid">'+inp('f_act','Action')+inp('f_owner','Owner')+inp('f_date','Due date','date')+sel('f_status','Status',['To Do','In Progress','Done'])+'</div><div class="flex" style="margin-top:10px"><button class="btn" onclick="saveAction()">Save</button><button class="btn2" onclick="csv(\'actions\',[\'act\',\'owner\',\'date\',\'status\'])">Export CSV</button></div></div><div class="card"><h2>Action Board</h2><div class="kanban">'+cols.map(function(c){var items=DB.actions.filter(function(r){return r.status===c&&matches(r)});return '<div class="col"><h3>'+c+' ('+items.length+')</h3>'+(items.map(function(r){var idx=DB.actions.indexOf(r);return '<div class="kcard"><b>'+esc(r.act)+'</b><div class="small">'+esc(r.owner||'')+'</div><div style="margin:6px 0">'+badge(r.date)+'</div><div class="flex"><select onchange="moveAction('+idx+',this.value)"><option>To Do</option><option>In Progress</option><option>Done</option></select><button class="del" onclick="del(\'actions\','+idx+')">Delete</button></div></div>'}).join('')||'<p class="small">None</p>')+'</div>'}).join('')+'</div></div>'}
+ if(VIEW==='Hazard Register'){h='<div class="card">'+tplPicker('hazard')+'</div>'+formCard('New Hazard',inp('f_haz','Hazard')+inp('f_site','Site')+sel('f_risk','Risk',['Low','Medium','High','Critical'])+'<div style="grid-column:1/-1"><label>Control measures</label><textarea id="f_ctrl" rows="2"></textarea></div>','saveHazard','<button class="btn2" onclick="csv(\'hazards\',[\'haz\',\'site\',\'risk\',\'ctrl\'])">Export CSV</button>')+'<div class="card"><h2>Hazards</h2>'+rows(DB.hazards.filter(matches),[{key:'haz',label:'Hazard'},{key:'site',label:'Site'},{key:'risk',label:'Risk'},{key:'ctrl',label:'Controls'}],'hazards')+'</div>'}
+ if(VIEW==='Risk Assessments'){h='<div class="card">'+tplPicker('risk')+'</div>'+formCard('New Risk Assessment',inp('f_activity','Activity')+inp('f_site','Site')+sel('f_risk','Risk',['Low','Medium','High','Critical'])+'<div style="grid-column:1/-1"><label>Control measures</label><textarea id="f_ctrl" rows="2"></textarea></div>','saveRisk')+'<div class="card"><h2>Risk Assessments</h2>'+rows(DB.risks.filter(matches),[{key:'act',label:'Activity'},{key:'site',label:'Site'},{key:'risk',label:'Risk'},{key:'ctrl',label:'Controls'}],'risks')+'</div>'}
+ if(VIEW==='Reminders'){h=formCard('New Reminder',inp('f_rem','Reminder')+inp('f_date','Date','date')+inp('f_site','Site'),'saveReminder')+'<div class="card"><h2>Reminders</h2>'+rows(DB.reminders.filter(matches),[{key:'rem',label:'Reminder'},{key:'date',label:'Date'},{key:'site',label:'Site'}],'reminders')+'</div>'}
+ if(VIEW==='First Aid'){h=formCard('First Aid Item',inp('f_item','Item')+inp('f_site','Site')+inp('f_qty','Qty','number')+inp('f_exp','Expiry','date'),'saveFirstAid')+'<div class="card"><h2>First Aid Stock</h2>'+rows(DB.firstaid.filter(matches),[{key:'item',label:'Item'},{key:'site',label:'Site'},{key:'qty',label:'Qty'},{key:'exp',label:'Expiry'}],'firstaid')+'</div>'}
+ if(VIEW==='Certificates'){h=formCard('New Certificate',inp('f_cert','Certificate')+inp('f_site','Site / Person')+inp('f_exp','Expiry','date'),'saveCert')+'<div class="card"><h2>Certificates</h2>'+rows(DB.certs.filter(matches),[{key:'cert',label:'Certificate'},{key:'site',label:'Site / Person'},{key:'exp',label:'Expiry'}],'certs')+'</div>'}
+ if(VIEW==='Asset Register'){h='<div class="card">'+tplPicker('asset')+'</div>'+formCard('New Asset',inp('f_asset','Asset')+inp('f_site','Site')+inp('f_date','Last checked','date')+inp('f_next','Next check','date')+sel('f_cond','Condition',['Good','Needs attention','Out of service']),'saveAsset','<button class="btn2" onclick="csv(\'assets\',[\'asset\',\'site\',\'date\',\'next\',\'cond\'])">Export CSV</button>')+'<div class="card"><h2>Assets</h2>'+rows(DB.assets.filter(matches),[{key:'asset',label:'Asset'},{key:'site',label:'Site'},{key:'date',label:'Last checked'},{key:'next',label:'Next check'},{key:'cond',label:'Condition'}],'assets')+'</div>'}
+ if(VIEW==='SOP Library'){h='<div class="card"><h2>SOP Library</h2><p><b>Upstairs Access Control</b> — 14 March 2026 — Controlled access, no unauthorised entry.<br><b>Asset Borrowing</b> — Requires Mr. Palmer + Philip Dorfling signatures on sign-out and return. No verbal permission.<br><b>Surveillance Avoidance</b> — &gt; 2 mins flagged.<br><b>Building SOP</b> — Zero tolerance fighting / aggression.<br><b>Emergency Assembly</b> — Primary Fire: Outside at Main Gate. Secondary Security Breach: Second (Top) Floor.</p></div>'}
+ if(VIEW==='Photo Queue'){h='<div class="card"><h2>Photo Queue</h2><p class="small">Photos are stored locally in this browser. Use for evidence photos.</p><input type="file" id="f_photo" accept="image/*"><input id="f_cap" placeholder="Caption"><button class="btn" onclick="savePhoto()">Add Photo</button></div><div class="card"><h2>Saved Photos</h2><div class="flex">'+(DB.photos.filter(matches).length?DB.photos.map(function(r,i){return '<div><img class="thumb" src="'+r.data+'"><div class="small">'+esc(r.cap)+'</div><button class="del" onclick="del(\'photos\','+i+')">Delete</button></div>'}).join(''):'<p class="small">No photos yet.</p>')+'</div></div>'}
+ if(VIEW==='Pack / Notes'){h=formCard('New Note / Pack Item',inp('f_pack','Title')+'<div style="grid-column:1/-1"><label>Details</label><textarea id="f_evid" rows="3"></textarea></div>','savePack')+'<div class="card"><h2>Notes</h2>'+rows(DB.notes.filter(matches),[{key:'title',label:'Title'},{key:'body',label:'Details'}],'notes')+'</div>'}
+ if(VIEW==='Templates'){h=formCard('New Checklist Template',inp('f_tname','Template name')+'<div style="grid-column:1/-1"><label>Items — one per line</label><textarea id="f_titems" rows="4"></textarea></div>','saveTemplate')+'<div class="card"><h2>Templates</h2>'+rows(DB.templates.filter(matches),[{key:'name',label:'Name'},{key:'items',label:'Items'}],'templates')+'</div>'}
+ if(VIEW==='Backup & Restore'){h='<div class="card"><h2>Backup &amp; Restore</h2><p>Everything is saved in this browser. Export a backup regularly and keep it somewhere safe.</p><div class="flex"><button class="btn" onclick="exportJSON()">Download Backup (.json)</button><button class="btn2" onclick="csv(\'actions\',[\'act\',\'owner\',\'date\',\'status\'])">Export Actions CSV</button></div><div style="margin-top:14px"><label>Import a backup .json file</label><input type="file" id="f_import" accept=".json,application/json"><button class="btn" onclick="importBackup()">Import Backup</button></div><div style="margin-top:14px"><button class="del" onclick="if(confirm(\'Delete ALL data? This cannot be undone.\')){DB=structuredClone(DEFAULT);save();render()}">Delete all data</button></div></div><div class="card"><h2>How to put this on GitHub Pages</h2><ol><li>Create a repo, upload this whole folder.</li><li>Settings → Pages → Deploy from branch → main → / (root) → Save.</li><li>Open the Pages link. Your data stays in each device browser.</li></ol><p class="small">Only ONE .html file in this folder — index.html. The other files are manifest + service worker + README, not extra pages.</p></div>'}
+ A.innerHTML=h;
+ var selEl=A.querySelector('select[onchange^="moveAction"]'); // keep selects synced
+ document.querySelectorAll('select[onchange^="moveAction"]').forEach(function(s){var card=s.closest('.kcard');});
+}
+function moveAction(i,status){DB.actions[i].status=status;save();render()}
+function saveAudit(){add('audits',{site:v('f_site'),dept:v('f_dept'),date:v('f_date'),score:v('f_score'),find:v('f_find')})}
+function saveTemplate(){add('templates',{name:v('f_tname'),items:v('f_titems')})}
+function saveIncident(){add('incidents',{site:v('f_site'),date:v('f_date'),type:v('f_type'),desc:v('f_desc'),act:v('f_act')})}
+function saveAction(){add('actions',{act:v('f_act'),owner:v('f_owner'),date:v('f_date'),status:v('f_status')})}
+function savePack(){add('notes',{title:v('f_pack'),body:v('f_evid')})}
+function saveAsset(){add('assets',{asset:v('f_asset'),site:v('f_site'),date:v('f_date'),next:v('f_next'),cond:v('f_cond')})}
+function saveHazard(){add('hazards',{haz:v('f_haz'),site:v('f_site'),risk:v('f_risk'),ctrl:v('f_ctrl')})}
+function saveRisk(){add('risks',{act:v('f_activity'),site:v('f_site'),risk:v('f_risk'),ctrl:v('f_ctrl')})}
+function saveFirstAid(){add('firstaid',{item:v('f_item'),site:v('f_site'),qty:v('f_qty'),exp:v('f_exp')})}
+function saveCert(){add('certs',{cert:v('f_cert'),site:v('f_site'),exp:v('f_exp')})}
+function saveReminder(){add('reminders',{rem:v('f_rem'),date:v('f_date'),site:v('f_site')})}
+function savePhoto(){var f=document.getElementById('f_photo').files[0];if(!f){alert('Choose a photo first');return}var r=new FileReader();r.onload=function(){DB.photos.push({cap:v('f_cap'),data:r.result});save();render()};r.readAsDataURL(f)}
+function exportJSON(){var d=new Date();var name='soft-ice-backup-'+d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+'.json';var b=new Blob([JSON.stringify(DB,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click()}
+function importBackup(){var f=document.getElementById('f_import').files[0];if(!f){alert('Choose a backup .json file first');return}var r=new FileReader();r.onload=function(){try{var data=JSON.parse(r.result);if(!data||typeof data!=='object')throw new Error('bad');Object.keys(DEFAULT).forEach(function(k){if(!Array.isArray(data[k]))data[k]=[]});DB=data;save();render();toast('Backup imported ✓')}catch(e){alert('Could not import — not a valid Soft Ice backup.')}};r.readAsText(f)}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){})}
+render();
+</script></body></html>

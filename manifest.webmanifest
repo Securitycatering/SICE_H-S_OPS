@@ -1,0 +1,9 @@
+{
+  "name": "Soft Ice - Safeguard Pro",
+  "short_name": "Safeguard Pro",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0A1E4A",
+  "theme_color": "#0A1E4A",
+  "icons": []
+}
